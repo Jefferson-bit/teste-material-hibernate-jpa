@@ -1,0 +1,24 @@
+#BD
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/carro}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:password}
+  sql:
+    init:
+      mode: always
+#JPA
+  jpa:
+    hibernate:
+      ddl-auto: ${DDL_MODE:create}
+    show-sql: ${SHOW_SQL:true}
+    properties:
+      hibernate:
+        format_sql: ${FORMAT_SQL:true}
+        dialect: org.hibernate.dialect.PostgreSQL92Dialect
+    defer-datasource-initialization: true
+
+server:
+  error:
+    include-message: always
